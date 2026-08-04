@@ -89,7 +89,7 @@ CinemaPulse/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ### 1. Clone the repository
 
@@ -131,7 +131,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ How to Run
+##  How to Run
 
 Run the Streamlit application:
 
@@ -143,7 +143,7 @@ The application will open automatically in your browser.
 
 ---
 
-## 📊 Machine Learning Workflow
+##  Machine Learning Workflow
 
 ```
 Dataset
