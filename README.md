@@ -1,66 +1,179 @@
-# OTT Audience Segmentation & Personalized Recommendation System
+# 🎬 CinemaPulse – Audience Segmentation for Personalized OTT Content Recommendation
 
-A production-ready Machine Learning MVP for clustering OTT users based on viewing behavior and generating personalized content recommendations. Built with Streamlit, Scikit-learn, and Plotly.
+##  Project Overview
 
----
-
-## 🎯 Problem Statement
-
-OTT platforms (Netflix, Amazon Prime, etc.) need to understand their diverse user base to deliver personalized content. This project:
-- Groups users into meaningful audience segments using **unsupervised clustering** (KMeans).
-- Generates **segment-specific content recommendations** using a rule-based engine.
-- Provides an **interactive dashboard** for data exploration, model training, and recommendation delivery.
+CinemaPulse is a Machine Learning-based web application that segments OTT users into different audience groups based on their viewing behavior, watch time, subscription type, preferred genre, and user activity. Using **K-Means Clustering**, the application identifies similar user groups and provides personalized content recommendations through an interactive Streamlit dashboard.
 
 ---
 
-## 📊 Dataset
+##  Problem Statement
 
-The dataset contains user-level information:
-- `User_ID`, `Name` (identifiers, dropped before training)
-- `Age`, `Country`, `Subscription_Type`, `Watch_Time_Hours`, `Favorite_Genre`, `Last_Login`
+OTT platforms serve users with diverse viewing preferences. Delivering the same recommendations to every user reduces engagement and retention.
 
-**Feature Engineering:**
-- `Last_Login` → `Days_Since_Last_Login` (recency of activity)
-- Optional: `Age_Group`, `Engagement_Level`, `Watch_Time_Category` (based on analysis)
+The objective of this project is to automatically segment users based on their behavior and preferences, enabling personalized content recommendations and better user engagement.
 
 ---
 
-## 🧠 Methodology
+##  Solution Overview
 
-### 1. Data Preprocessing
-- Handle missing values & duplicates
-- Encode categorical features (One‑Hot Encoding for nominal, Ordinal for Subscription_Type if needed)
-- Scale numerical features with `StandardScaler` (required for KMeans)
+The application performs the following tasks:
 
-### 2. Clustering (Unsupervised)
-- **KMeans** selected for:
-  - Scalability & interpretability
-  - Clear cluster centroids for business labeling
-- Optimal **K** determined via:
-  - **Elbow Method** (inertia)
-  - **Silhouette Score** (cohesion & separation)
-- Model saved as `kmeans.pkl` and `scaler.pkl`
-
-### 3. Cluster Profiling
-Each cluster is analyzed to generate:
-- Business‑friendly name (e.g., *Premium Binge Watchers*)
-- Average age, preferred genre, watch time, subscription type, country distribution, recent activity
-
-### 4. Recommendation Engine
-Rule‑based mapping from cluster profiles to curated content lists:
-- Example: *Action Lovers* → John Wick, Extraction, Avengers, etc.
+- Load the OTT user dataset
+- Clean and preprocess the data
+- Perform feature engineering
+- Encode categorical features
+- Scale numerical features
+- Determine the optimal number of clusters
+- Train a K-Means clustering model
+- Segment users into audience groups
+- Generate personalized content recommendations
+- Visualize results through an interactive Streamlit dashboard
 
 ---
 
-## 🏗️ Architecture
+##  Features
 
-```mermaid
-flowchart TD
-    A[Upload Dataset] --> B[Data Preprocessing]
-    B --> C[Feature Engineering]
-    C --> D[Clustering KMeans]
-    D --> E[Optimal K via Elbow & Silhouette]
-    E --> F[Assign Segments]
-    F --> G[Cluster Profiling]
-    G --> H[Recommendation Engine]
-    H --> I[Interactive Dashboard]
+- User-friendly Streamlit interface
+- Automatic data preprocessing
+- Feature engineering
+- Audience segmentation using K-Means
+- Elbow Method & Silhouette Score for optimal clusters
+- Interactive visualizations
+- Audience profile analysis
+- Personalized content recommendations
+- Download segmented dataset
+
+---
+
+##  Technology Stack
+
+| Category | Technology |
+|----------|------------|
+| Programming Language | Python |
+| Web Framework | Streamlit |
+| Machine Learning | Scikit-learn |
+| Data Processing | Pandas, NumPy |
+| Visualization | Plotly, Matplotlib |
+| Model Serialization | Joblib |
+| Version Control | Git & GitHub |
+
+---
+
+##  Project Structure
+
+```text
+CinemaPulse/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+│   └── netflix_users.csv
+│
+├── models/
+│   ├── kmeans.pkl
+│   └── scaler.pkl
+│
+├── outputs/
+│   └── segmented_users.csv
+│
+└── src/
+    ├── data_loader.py
+    ├── preprocessing.py
+    ├── clustering.py
+    ├── recommendation.py
+    ├── visualization.py
+    └── utils.py
+```
+
+---
+
+## ⚙️ Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/CinemaPulse.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd CinemaPulse
+```
+
+### 3. Create a virtual environment (Optional)
+
+```bash
+python -m venv venv
+```
+
+### 4. Activate the environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux / macOS**
+
+```bash
+source venv/bin/activate
+```
+
+### 5. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ How to Run
+
+Run the Streamlit application:
+
+```bash
+streamlit run app.py
+```
+
+The application will open automatically in your browser.
+
+---
+
+## 📊 Machine Learning Workflow
+
+```
+Dataset
+   ↓
+Data Preprocessing
+   ↓
+Feature Engineering
+   ↓
+Encoding & Scaling
+   ↓
+K-Means Clustering
+   ↓
+Audience Segmentation
+   ↓
+Personalized Recommendations
+```
+
+---
+
+##  Future Enhancements
+
+- Real-time recommendation system
+- Hybrid recommendation engine
+- User authentication
+- Cloud deployment (AWS/Azure/GCP)
+- Deep Learning-based segmentation
+- Collaborative filtering
+- REST API integration
+
+---
+---
+
+## ⭐ If you found this project useful, consider giving it a star!
