@@ -174,6 +174,3 @@ Personalized Recommendations
 - REST API integration
 
 ---
----
-
-## ⭐ If you found this project useful, consider giving it a star!
