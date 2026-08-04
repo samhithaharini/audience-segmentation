@@ -31,6 +31,12 @@ The application performs the following tasks:
 
 ---
 
+##  Live Demo
+
+[Live App](https://audience-segmentation-samhithaharini.streamlit.app/#discover-viewer-patterns-and-deliver-relevant-content)
+
+---
+
 ##  Features
 
 - User-friendly Streamlit interface
